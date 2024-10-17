@@ -1,0 +1,33 @@
+CREATE DATABASE shopping;
+GO;
+CREATE TABLE `user` (
+	uuid VARCHAR(36) PRIMARY KEY NOT NULL,
+	username VARCHAR(36) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	fname VARCHAR(255) NOT NULL,
+	address VARCHAR(255) NULL,
+	mail VARCHAR(255) NOT NULL,
+	phone VARCHAR(15) NOT NULL,
+	is_deleted BIT NOT NULL,
+	created_at BIGINT NOT NULL,
+	update_at BIGINT NOT NULL
+)
+
+CREATE TABLE `category` (
+	uuid VARCHAR(36) PRIMARY KEY NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	is_deleted BIT NOT NULL,
+	created_at BIGINT NOT NULL,
+	update_at BIGINT NOT NULL
+)
+
+GO;
+CREATE TABLE `product` (
+	uuid VARCHAR(36) PRIMARY KEY NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	category_uuid VARCHAR(36) NOT NULL,
+	price DOUBLE NOT NULL,
+	is_deleted BIT NOT NULL,
+	created_at BIGINT NOT NULL,
+	update_at BIGINT NOT NULL
+)
